@@ -15,8 +15,9 @@ pipeline {
             steps {
                 echo 'Checking HTML and CSS files'
 
-                sh 'test -f index.html'
-                sh 'test -f style.css'
+                bat 'if exist index.html (echo HTML file found) else (exit /b 1)'
+
+                bat 'if exist style.css (echo CSS file found) else (exit /b 1)'
             }
         }
 
